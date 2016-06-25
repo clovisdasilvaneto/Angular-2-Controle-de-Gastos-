@@ -1,0 +1,22 @@
+<button class="btn btn-primary" [routerLink]="['ProviderForm']">Effectuate new provider</button>
+<bulk-remove [todos]="providers" [hasTodo]="hasProvider" (passedRemoveTodos)="removeProviders($event)" [errorMsg]="'Please, select one provider'" [confirmMsg]="'You sure you want to delete these records?'"></bulk-remove>
+<hr />
+
+<h2>Provider list</h2>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Account Number</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="#provider of providers">
+			<td><input type="checkbox" (click)="checkProviders(providers)" [(ngModel)]="provider.selected" /></td>
+			<td><a (click)="editByProvider(provider)">{{provider.name}}</a></td>
+			<td>{{provider.account_number}}</td>
+		</tr>
+	</tbody>
+</table>

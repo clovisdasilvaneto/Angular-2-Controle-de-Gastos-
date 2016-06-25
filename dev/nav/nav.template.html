@@ -1,0 +1,24 @@
+<div class="navbar navbar-static-top bs-docs-nav bg-primary">
+	<nav id="navbar" class="container">
+		<nav class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li>
+					<a class="nav-link" [routerLink]="['Payments']">Payments</a>
+
+					<ul>
+						<li><a [routerLink]="['PaymentForm']">Effectuate new payment</a></li>
+						<li><a href="#" [routerLink]="['Payments']">Payments list</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="nav-link" [routerLink]="['Providers']">Providers</a>
+
+					<ul>
+						<li><a [routerLink]="['ProviderForm']">Register new provider</a></li>
+						<li><a [routerLink]="['Providers']">Providers list</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</nav>
+</div>

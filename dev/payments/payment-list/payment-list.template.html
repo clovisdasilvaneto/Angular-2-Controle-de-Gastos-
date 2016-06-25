@@ -1,0 +1,24 @@
+<button class="btn btn-primary" [routerLink]="['PaymentForm']">Effectuate new payment</button>
+<bulk-remove [todos]="payments" [hasTodo]="hasPayment" (passedRemoveTodos)="removePayments($event)" [errorMsg]="'Please, select one payment'" [confirmMsg]="'You sure you want to delete these records?'"></bulk-remove>
+<hr />
+
+<h2>Payment list</h2>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Provider</th>
+			<th>Payment Form</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="#payment of payments">
+			<td><input type="checkbox" (click)="checkPayments(payments)" [(ngModel)]="payment.selected" /></td>
+			<td><a (click)="editByPayment(payment)">{{payment.provider.name}}</a></td>
+			<td>{{payment.payment_form}}</td>
+			<td>{{payment.value | currency:'USD':true:'1.1-2'}}</td>
+		</tr>
+	</tbody>
+</table>

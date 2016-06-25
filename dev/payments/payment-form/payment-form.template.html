@@ -1,0 +1,36 @@
+
+<hr *ngIf="isEdit" />
+
+<h2>{{isEdit ? 'Edit Payment' : 'New Payment'}}</h2>
+<hr>
+<form #myForm="ngForm" (ngSubmit)="checkPayment(myForm, payment)">
+	<div class="row">
+		<div class="col-md-3">
+			<label for="value">Provider</label>
+			<div class="input-group">
+				<select id="organisation" #provider="ngForm" ngControl="provider" class="form-control" [(ngModel)]="payment.provider._id" required>
+					<option *ngFor="#provider of providers" [value]="provider._id">{{provider.name}}</option>
+  				</select>
+				<p *ngIf="!providers.length" class="alert alert-info">There are no registered suppliers . Register a supplier to continue.</p>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-3">
+			<label for="payment-form">Payment Form</label>
+			<input type="text" #paymentForm="ngForm" ngControl="paymentForm" id="payment-form" class="form-control" [(ngModel)]="payment.payment_form" placeholder="credit or debit" required>
+		</div>
+
+		<div class="col-md-3">
+			<label for="value">Value</label>
+			<input type="number" id="value" min="1" class="form-control" #value="ngForm" ngControl="value" [(ngModel)]="payment.value" placeholder="$ 100,00" required>
+		</div>
+	</div>
+	<hr>
+
+	<p class="alert alert-info" *ngIf="errorMsg">{{errorMsg}}</p>
+
+	<button class="btn btn-info">Save</button>
+	<button class="btn btn-danger" *ngIf="isEdit" (click)="removePayments(payment)">Excluir</button>
+</form>

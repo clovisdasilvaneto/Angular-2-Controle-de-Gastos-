@@ -1,0 +1,36 @@
+@import url(variables.scss);
+
+form label {
+	font-size: 1em;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+a {
+	cursor: pointer;
+}
+
+input, select, select.form-control, input.form-control {
+	border-radius: 4px;
+}
+
+select {
+	width: 100%;
+}
+
+.ng-touched.ng-invalid {
+	border: solid 1px $assertive;
+	color: $assertive;
+	box-shadow: 0 0 3px $assertive;
+}
+
+.ng-touched.ng-valid {
+	border: solid 1px green;
+}
+
+body .alert {
+	color:#333;
+	font-family: arial;
+}

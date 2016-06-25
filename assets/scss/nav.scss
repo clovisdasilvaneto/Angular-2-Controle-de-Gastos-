@@ -1,0 +1,46 @@
+@import url(variables.scss);
+
+.nav-link {
+	color:#fff;
+
+	&:hover, &:active, &:focus {
+		color: $primary;
+	}
+}
+
+#navbar li:hover > ul {
+	opacity: 1;
+	visibility: visible;
+}
+
+#navbar ul ul {
+	position: absolute;
+    background: #008cba;
+    list-style: none;
+    padding: 0;
+	visibility: hidden;
+	opacity: 0;
+    width: 200%;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.23);
+    padding: 0 1em 1em;
+    border-radius: 0 0 4px 4px;
+
+	transition: opacity .5s ease, visibility .5s ease;
+
+	a {
+		color:#fff;
+		margin-top: 0.5em;
+		display: block;
+		font-size: 1em;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	nav.collapse {
+		display: block;
+
+		ul ul {
+			display: none;
+		}
+	}
+}

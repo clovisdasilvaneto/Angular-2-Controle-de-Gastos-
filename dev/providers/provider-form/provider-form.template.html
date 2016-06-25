@@ -1,0 +1,24 @@
+
+<hr *ngIf="isEdit" />
+
+<h2>{{isEdit ? 'Edit Provider' : 'New Provider'}}</h2>
+<hr>
+<form #myForm="ngForm" (ngSubmit)="checkProvider(myForm, provider)">
+	<div class="row">
+		<div class="col-md-3">
+			<label for="name">Name</label>
+			<input type="text" id="name" min="1" class="form-control" #name="ngForm" ngControl="name" [(ngModel)]="provider.name" placeholder="You provider name" required>
+		</div>
+
+		<div class="col-md-3">
+			<label for="account_number">Account Number</label>
+			<input type="text" #accountNumber="ngForm" ngControl="accountNumber" id="account_number" class="form-control" [(ngModel)]="provider.account_number" placeholder="99999-9" required>
+		</div>
+	</div>
+	<hr>
+
+	<p class="alert alert-info" *ngIf="errorMsg">{{errorMsg}}</p>
+
+	<button class="btn btn-info">Save</button>
+	<button class="btn btn-danger" *ngIf="isEdit" (click)="removeProviders(provider)">Excluir</button>
+</form>
