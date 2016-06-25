@@ -10,7 +10,7 @@ export class ContactService {
 	constructor(private http: Http) { }
 
 	getContacts(): Promise<Contact[]> {
-	   return this.http.get('http://localhost:8000/api/salons/')
+	   return this.http.get('https://meus-gastos-api.herokuapp.com/api/salons/')
 		  .toPromise()
 		  .then(response => response.json())
 		  .catch(this.handleError);

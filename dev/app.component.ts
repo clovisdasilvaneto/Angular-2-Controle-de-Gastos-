@@ -25,10 +25,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 	{path: '/payment-form/:id', name:'PaymentFormFromPayment', component: PaymentformComponent},
 	{path: '/providers', name:'Providers', component: ProviderListComponent},
 	{path: '/provider-form', name:'ProviderForm', component: ProviderFormComponent},
-	{path: '/provider-form/:id', name:'ProviderFormFromProvider', component: ProviderFormComponent},
-	{path: '/contacts', name:'Contacts', component: ContactListComponent},
-	{path: '/newContact', name:'NewContact', component: NewContactComponent},
-	{path: '/newContact/:name', name:'NewContactFromContact', component: NewContactComponent}
+	{path: '/provider-form/:id', name:'ProviderFormFromProvider', component: ProviderFormComponent}
 ])
 export class AppComponent {
 

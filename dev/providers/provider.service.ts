@@ -9,14 +9,14 @@ export class ProviderService {
 	constructor(private http: Http) { }
 
 	get(): Promise<Provider[]> {
-	   return this.http.get('http://localhost:8000/api/providers/')
+	   return this.http.get('https://meus-gastos-api.herokuapp.com/api/providers/')
 		  .toPromise()
 		  .then(response => response.json())
 		  .catch(this.handleError);
 	 }
 
 	getById(provider: Provider): Promise<Provider[]> {
-	   return this.http.get('http://localhost:8000/api/providers/'+provider._id)
+	   return this.http.get('https://meus-gastos-api.herokuapp.com/api/providers/'+provider._id)
 		  .toPromise()
 		  .then(response => response.json())
 		  .catch(this.handleError);
@@ -31,7 +31,7 @@ export class ProviderService {
 
 	post(provider: Provider): Promise<Provider>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/providers/';
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/providers/';
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.post(url, JSON.stringify(provider), {headers: headers})
@@ -42,7 +42,7 @@ export class ProviderService {
 
 	put(provider: Provider): Promise<Provider>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/providers/'+provider._id;
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/providers/'+provider._id;
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.put(url, JSON.stringify(provider), {headers: headers})
@@ -53,7 +53,7 @@ export class ProviderService {
 
 	remove(provider: Provider): Promise<Provider>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/providers/'+provider._id;
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/providers/'+provider._id;
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.delete(url, {headers: headers})
@@ -64,7 +64,7 @@ export class ProviderService {
 
 	bulkRemove(providers): Promise<Provider>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/providers/bulkRemove/';
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/providers/bulkRemove/';
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.post(url, JSON.stringify(providers), {headers: headers})

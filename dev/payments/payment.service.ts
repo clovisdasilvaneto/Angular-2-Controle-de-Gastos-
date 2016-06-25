@@ -9,14 +9,14 @@ export class PaymentService {
 	constructor(private http: Http) { }
 
 	get(): Promise<Payment[]> {
-	   return this.http.get('http://localhost:8000/api/payments/')
+	   return this.http.get('https://meus-gastos-api.herokuapp.com/api/payments/')
 		  .toPromise()
 		  .then(response => response.json())
 		  .catch(this.handleError);
 	 }
 
 	getById(payment: Payment): Promise<Payment[]> {
-	   return this.http.get('http://localhost:8000/api/payments/'+payment._id)
+	   return this.http.get('https://meus-gastos-api.herokuapp.com/api/payments/'+payment._id)
 		  .toPromise()
 		  .then(response => response.json())
 		  .catch(this.handleError);
@@ -31,7 +31,7 @@ export class PaymentService {
 
 	post(payment: Payment): Promise<Payment>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/payments/';
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/payments/';
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.post(url, JSON.stringify(payment), {headers: headers})
@@ -42,7 +42,7 @@ export class PaymentService {
 
 	put(payment: Payment): Promise<Payment>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/payments/'+payment._id;
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/payments/'+payment._id;
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.put(url, JSON.stringify(payment), {headers: headers})
@@ -53,7 +53,7 @@ export class PaymentService {
 
 	remove(payment: Payment): Promise<Payment>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/payments/'+payment._id;
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/payments/'+payment._id;
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.delete(url, {headers: headers})
@@ -64,7 +64,7 @@ export class PaymentService {
 
 	bulkRemove(payments): Promise<Payment>{
 	    let headers = new Headers();
-	    let url = 'http://localhost:8000/api/payments/bulkRemove/';
+	    let url = 'https://meus-gastos-api.herokuapp.com/api/payments/bulkRemove/';
 
 		headers.append('Content-Type', 'application/json');
 	    return this.http.post(url, JSON.stringify(payments), {headers: headers})
